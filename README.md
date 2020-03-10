@@ -1,5 +1,5 @@
 # ykfipsconf
-A python wrapper for the [ykman](https://github.com/Yubico/yubikey-manager) tool, made to take an unlocked YubiKey and enable fips mode on it.
+A Python wrapper for the [ykman](https://github.com/Yubico/yubikey-manager) tool, made to take an unlocked YubiKey and enable fips mode on it.
 
 ## Caveats:
 Most provisioning operations with yubikeys can be done in 2 steps:
