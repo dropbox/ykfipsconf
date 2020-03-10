@@ -10,12 +10,10 @@ FIPS mode devices are more restrictive: instead of allowing a user to self regis
 
 Duo, Okta and Google all permit this in their administrative workflows, though this functionality is limited typically to allowing administrators to register 1 FIDO key on behalf of each user.
 
-## Provisioning Process requirements
-In order to "enable FIPS mode" we only have a few possible ways to configure the keys:
-1. In order to be FIPS mode, an app cannot be disabled before it is locked. -- Whether you use CCID or not, make sure you set the OATH password as this is required.
-2. In order for the device to be "fips mode" you must enable all required apps in fips mode.
-3. OTP locking should happen *near* to the last provisioning operation, since it will prevent other mode changes
-4. U2F registration must be done by unlocking the FIDO slot, and likely done on behalf of the user.  Once the device is *locked* no further registrations can happen (no user self service webauthn registrations.)
+## Provisioning Process Notes
+In order to "enable FIPS mode" we only have a few possible ways to configure the key and when you run this tool, these things will be ensured:
+1. In order for the device to be "FIPS mode" you must enable all required apps in fips mode, that means the mode MUST be OTP+CCID+FIDO or it will not show as being in FIPS mode.
+2. U2F registration must be done by unlocking the FIDO slot, and likely done on behalf of the user by the Crypto Officer.  Once the device is *locked* no further registrations can happen (no user self service webauthn registrations.)
 
 A json config file must be present in `/etc/ykConfig/secrets.json` that looks like so:
 
