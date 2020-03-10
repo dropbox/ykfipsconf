@@ -24,7 +24,7 @@ A json config file must be present in /etc/ykConfig/secrets.json that looks like
     "ykConfig": {
     "otp_access_code" : "012345678910",
     "oath_password": "TheQuickBrownFoxJumpedOverTheLazyDog1",
-    "fido_admin_pin" : "pinssuck123",
+    "fido_admin_pin" : "pin4fips123",
     "u2f_pin" : "012345678910"
     }
 }
