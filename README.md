@@ -12,7 +12,7 @@ Duo, Okta and Google all permit this in their administrative workflows, though t
 
 ## Provisioning Process requirements
 In order to "enable FIPS mode" we only have a few possible ways to configure the keys:
-1. In order to be Fips mode, an app cannot be disabled before it is locked. -- Whether you use CCID or not, make sure you set the OATH password as this is required.
+1. In order to be FIPS mode, an app cannot be disabled before it is locked. -- Whether you use CCID or not, make sure you set the OATH password as this is required.
 2. In order for the device to be "fips mode" you must enable all required apps in fips mode.
 3. OTP locking should happen *near* to the last provisioning operation, since it will prevent other mode changes
 4. U2F registration must be done by unlocking the FIDO slot, and likely done on behalf of the user.  Once the device is *locked* no further registrations can happen (no user self service webauthn registrations.)
