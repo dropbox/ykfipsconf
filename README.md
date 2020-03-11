@@ -48,3 +48,6 @@ U2F slots are currently out of scope for the reset flag, as resetting the app ca
 [Yubikey Fips Series Technical Manual](https://support.yubico.com/support/solutions/articles/15000011059-yubikey-fips-series-technical-manual)
 
 [Yubico Fips series deployment considerations](https://support.yubico.com/support/solutions/articles/15000022275-yubikey-fips-series-deployment-considerations)
+
+### Note: 
+External contributions to the project should be subject to Dropbox Contributor License Agreement (CLA).
