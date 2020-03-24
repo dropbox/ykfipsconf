@@ -12,7 +12,6 @@ with open('/etc/ykConfig/secrets.json') as json_data_file:
 default_otp_access_code = secrets['ykConfig']['otp_access_code']
 default_oath_password = secrets['ykConfig']['oath_password']
 default_fido_admin_pin = secrets['ykConfig']['fido_admin_pin']
-duo_base_url = secrets['ykConfig']['duo_base_url']
 default_u2f_pin = secrets['ykConfig']['u2f_pin']
 debug = False
 #### END CONFIG LOAD ####
@@ -25,7 +24,7 @@ class Provisioner:
         self.clearKey = False
 
     def exportCSV(self):
-        output = open(self.outfile,"at")
+        output = open(self.outfile,"a")
         outputstr = ""
         for entries in self.keys:
             outputstr = entries[0] + "," + entries[1] + "," + entries[2]  + "\n"
@@ -293,6 +292,8 @@ def Main():
                             if ['OATH', 'No'] == fipsstate:
                                 # lockdown oath app
                                 yk.lockOath(oath_password=default_oath_password)
+            else:
+                yk.generateOTP(access_code=default_otp_access_code)
             yk.queryKey()
             if debug == True: print(yk.type,yk.serial,yk.fips,yk.modes,yk.fipsApps)
             try:
@@ -323,7 +324,9 @@ def Main():
                     OTP: Yes
                     '''
                 print("Success, fips mode enabled")
-                provis.exportCSV()        
+                provis.exportCSV()
+            else:
+                provis.exportCSV()
         elif provis.clearKey == True:
             if raw_input("Insert yubikey and press Enter (x to exit):").lower() == 'x':
                 break
